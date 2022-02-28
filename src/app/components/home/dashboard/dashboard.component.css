@@ -1,0 +1,38 @@
+.myBanner{
+    width: 100vw;
+    height: 100vh;
+}
+
+.myThumnail{
+    height: 150px;
+    width: 100%;
+}
+
+
+.leftButtonCategory, .rightButtonCategory{
+    position:static;
+    height: 10vh;
+    width: 8vw;
+    background-color: rgba(238, 232, 232, 0.5);
+    top: 112vh;
+}   
+
+.rightButtonCategory{
+    right: 0;
+}
+
+.cardProduct{
+    width: 100%;
+    height: 30vh;
+}
+
+.labelDiscount{
+    position:absolute;
+    width: 100px;
+    background-color: yellow;
+}
+
+.labelDistributor{
+    font-weight: bold;
+}
+

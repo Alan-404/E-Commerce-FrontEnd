@@ -1,0 +1,27 @@
+.thumnail{
+    position:absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.dark-overlay{
+    position:absolute;
+    top: 0;
+    width: 100vw;
+    height: 1500vh;
+    background-color: rgba(20, 20, 20, 0.3);
+}
+
+.showImage{
+    width: 200px;
+    height: 200px;
+}
+
+.labelDistributor{
+    font-weight: bold;
+}
+
+.myCard{
+    width: 32rem;
+}

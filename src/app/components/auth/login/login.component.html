@@ -1,0 +1,39 @@
+<div class="d-flex loginForm">
+    <div class="inputForm p-3 w-100 w3-animate-left">
+        <h1>Login Account</h1>
+        <hr />
+        <div>
+            <div class="form-floating mb-3">
+                <input (keyup)="getInfo($event)" (keyup.enter)="submitLogin()" name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input (keyup)="getInfo($event)" name = "password" (keyup.enter)="submitLogin()" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+            </div>
+            <button type="button" (click)="submitLogin()" class="btn btn-primary">Submit</button>
+        </div>
+        <div class="mt-3 d-flex justify-content-between">
+            <button (click)="signInGoogle()" class="p-2 btnGoogle"><img class="googleButton" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1200px-Google_%22G%22_Logo.svg.png"/>&#160;&#160;Google Login</button>
+            <button (click)="loginAccountFacebook" class="p-2 btnFacebook"><img class="facebookButton" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1200px-Facebook_Logo_%282019%29.png"/>&#160;&#160;Facebook Login</button>
+        </div>
+        <div>
+            <div class="d-flex mt-3">
+                <p>Don't have account</p>&#160;&#160;<a routerLink="/auth/register">Register here</a>
+            </div>
+        </div>
+    </div>
+    <div class="w3-animate-right">
+        <img class="imageShow" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBFNc5TzSEqnmcPGsXg13507uO5VX4OGXUqw&usqp=CAU"/>
+    </div>
+</div>
+
+<div *ngIf="showErrorForm" class="formError border bg-danger p-4 w3-animate-zoom">
+    <h4 class="text-light d-flex"><i class="fa-solid fa-triangle-exclamation text-warning"></i>&#160;&#160;&#160;Error</h4>
+    <hr />
+    <span class="text-light" style="font-size: 25px;">{{message}}</span>
+</div>
+
+<div *ngIf="spinner">
+    <app-spinner></app-spinner>
+</div>

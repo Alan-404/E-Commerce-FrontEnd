@@ -1,0 +1,38 @@
+.inputForm{
+    background-color: skyblue;
+    border-radius: 12px 0 0 12px;
+}
+
+.imageShow{
+    width: 450px;
+    height: 450px;
+    border-radius: 0 12px 12px 0;
+}
+
+.googleButton, .facebookButton{
+    width: 25px;
+    height: 25px;
+}
+
+.btnGoogle{
+    border-radius: 12px;
+    border: none;
+    background-color: white;
+}
+
+.btnFacebook{
+    border-radius: 12px;
+    border: none;
+    background-color: blue;
+    color: white
+}
+
+
+.formError{
+    position:absolute;
+    width: 400px;
+    background-color: rgba(233, 152, 152, 0.5);
+    top: 23vh;
+    left: 35vw;
+    border-radius: 12px;
+}

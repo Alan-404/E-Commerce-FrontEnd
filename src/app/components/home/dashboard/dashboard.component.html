@@ -1,0 +1,78 @@
+<div class="p-1">
+  <div *ngIf="banners" id="carouselExampleIndicators" class="carousel slide w3-animate-top" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
+      
+    </div>
+    <div class="carousel-inner">
+      <div *ngFor = 'let banner of banners; let index = index;let isFirst = first' [ngClass]="{active:isFirst}" class="carousel-item active">
+        <img src="{{banner.image}}" class="myBanner" alt="...">
+      </div>      
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <div>
+    <div class="bg-secondary p-3 mt-4 d-flex" id="11111">
+      <h1 class="text-light">
+        <i class="fas fa-fire text-warning"></i>&#160;&#160;&#160;&#160;Shop By Category</h1>
+    </div>
+
+    
+
+    <div class="d-flex">
+      <div style="cursor: pointer;" *ngFor = 'let category of categories' class="w3-animate-zoom">
+        <div (click)="goToCategoryPage(category.id)" class="card myCategory" style="width: 18rem;">
+          <img [src]="category.thumnail" class="card-img-top myThumnail myCategory" alt="...">
+          <div class="card-body myCategory">
+            <p class="card-text text-center">{{category.name}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="d-flex">
+      <div class="leftButtonCategory text-center">
+        <i class="fa-solid fa-angle-left"></i>
+      </div>
+      <div class="rightButtonCategory text-center">
+        <i class="fa-solid fa-angle-right"></i>
+      </div>
+    </div> -->
+
+  </div>
+
+  <div>
+    <div class="bg-warning p-3 mt-4 d-flex">
+      <h1 class="text-light">
+        <i class="fas fa-bullhorn text-success"></i>&#160;&#160;&#160;&#160;New Products For You</h1>
+    </div>
+  </div>
+
+  <div class="d-flex">
+    <div *ngFor="let product of infoProducts.products; let index = index" class="card" style="width: 20rem;">
+      <img (click)="seeMoreProduct(product.id)" style="cursor: pointer;" [src]="infoProducts.thumnails[index]" class="card-img-top cardProduct" alt="...">
+      <span *ngIf="infoProducts.discounts[index].active" class="labelDiscount text-danger p-2">Sale: {{infoProducts.discounts[index].discount_percent}}%</span>
+      <div class="card-body">
+        <h2 style="cursor: pointer;" class="card-title">{{product.name}}</h2>
+        <p *ngIf="infoProducts.discounts[index].active" class="card-text"><span class="text-primary">Price: </span><span>{{handleDiscount(product.price,infoProducts.discounts[index].discount_percent).toLocaleString()}} VND</span>&#160;&#160;<span class="text-decoration-line-through text-danger">{{product.price.toLocaleString()}} VND</span></p>
+        <p *ngIf="!infoProducts.discounts[index].active" class="card-text"><span class="text-primary">Price: </span> <span class="">{{product.price.toLocaleString()}} VND</span></p>
+        <p>From: <span class="labelDistributor">{{infoProducts.distributors[index]}}</span></p>
+        <p>Category: <span class="labelDistributor">{{infoProducts.categories[index]}}</span></p>
+        <button (click)="addToCart(product.id)" class="btn btn-primary"><i class="fas fa-shopping-cart"></i>&#160;&#160;&#160;Add To Cart</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+

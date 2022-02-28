@@ -1,0 +1,37 @@
+.dark-overlay{
+    position:absolute;
+    background-color: rgba(15, 15, 15, 0.4);
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+
+.auth-options{
+    position:absolute;
+    left: 75vw;
+    top: 8vh;
+    border-radius: 12px;
+}
+
+.confirmLogout{
+    position:absolute;
+    border-radius: 25px;
+    left: 38vw;
+    top: 15vh;
+    background-color: white;
+    color: black;
+}
+
+.myLink{
+    color: white;
+}
+
+.myLink:hover{
+    color: yellow;
+}
+
+.userAvatar{
+    height: 23px;   
+    width: 23px;
+}

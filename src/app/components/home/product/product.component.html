@@ -1,0 +1,60 @@
+<div>
+    <div class="bg-info" style="height: 13vh;"></div>
+    <div class="mt-4 container">
+        <div class="d-flex">
+            <div>
+                <img [src]="imageShow" class="img-thumbnail" style="height: 65vh; width: 65vh; border-radius: 10px;" alt="...">
+                <div class="d-flex flex-wrap flex-row mt-2">
+                    <div *ngFor="let image of images" [ngClass]="{imageShow: image.active}" style="cursor: pointer;">
+                        <div (click)="changeImageShow(image.image)">
+                            <img [src]="image.image" style="width: 100px; height: 100px;"/>
+                        </div>
+                        &#160;&#160;&#160;
+                    </div>
+                </div>
+            </div>
+            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+            <div>
+                <div class="d-flex">
+                    <h1 style="font-weight: bold;">{{product.name}}</h1>
+                    &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                    <i class="fa fa-list-alt mt-2 categoryIcon" aria-hidden="true">&#160;&#160;{{category.name}}</i>
+                </div>
+                <hr />
+                <h2><span class="text-secondary">From: </span>&#160;&#160;<span>{{distributor.name}}</span></h2>
+                <div *ngIf="product.price">
+                    <div *ngIf="discount.active">
+                        <h2 class="text-primary">{{handleDiscount(product.price, discount.discount_percent).toLocaleString()}} VND</h2>
+                        <div class="d-flex">
+                            <div class="p-2 text-center text-light" style="background-image: linear-gradient(45deg, red, blue); border-radius: 25px; width: 100px;">
+                                -{{discount.discount_percent}}%
+                            </div>
+                            &#160;&#160;&#160;&#160;
+                            <p class="text-danger mt-2 text-decoration-line-through">{{product.price.toLocaleString()}} VND</p>
+                        </div>
+                    </div>
+                    <div *ngIf="!discount.active">
+                        <h2 class="text-primary">{{product.price.toLocaleString()}} VND</h2>
+                    </div> 
+                </div>
+                <div class="mt-4">
+                    <button class="text-light p-2" style="background-color: rgb(152, 201, 152); border: none; "><i class="fas fa-shopping-cart"></i>&#160;&#160;Add To Cart</button>
+                </div>
+            </div>
+            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+        </div>
+        <div>
+            <div>
+                <h2 class="">Detail Information</h2>
+                <hr />
+            </div>
+            <div>
+                <div class="p-2">
+                    <span class="h4 p-2" style="background-color: rgb(226, 218, 218);">Trademark</span>
+                    &#160;&#160;&#160;
+                    <span class="h4">{{distributor.name}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

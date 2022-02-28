@@ -1,0 +1,12 @@
+.imageShow{
+    border: 1px solid red;
+}
+
+.categoryIcon{
+    color: gray;
+    cursor: pointer;
+}
+
+.categoryIcon:hover{
+    color: rgb(211, 211, 102);
+}

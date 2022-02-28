@@ -1,0 +1,54 @@
+<div class="myHeader d-flex justify-content-between">  
+    <div>
+        <h1 (click)="goHome()" style="cursor: pointer;">VinalaSHOP</h1>
+    </div>
+    <div class="d-flex w-50">
+        <div class="input-group mb-3 w-50">
+            <input type="text" class="form-control" aria-label="Recipient's username" placeholder="Search..." aria-describedby="basic-addon2">
+            <span class="input-group-text text-light bg-info" id="basic-addon2"><i class="fa fa-search"></i>&#160;Search</span>
+        </div>
+        &#160;&#160;&#160;&#160;
+        <div (mouseenter)="showAuthOption()" style="cursor: pointer; width: auto;">
+            <h1 *ngIf = "checkLogin && info">
+                <i *ngIf="!info.avatar" class="fa-solid fa-user"></i>
+                <img *ngIf="info.avatar" [src]="info.avatar" class="userAvatar"/>
+                {{info.last_name + " " + info.first_name}}
+            </h1>
+        </div>
+        <div *ngIf = "!checkLogin">
+            <a routerLink="/auth/login" class="text-decoration-none h4 myLink">Sign In</a>
+            &#160;&#160;
+            <a routerLink="/auth/login" class="text-decoration-none h4 myLink">Sign Up</a>
+        </div>
+        &#160;&#160;&#160;&#160;
+        <div>
+            <h3 (click)="goCartPage()"><i class="fas fa-shopping-cart"></i>&#160;&#160;</h3>
+        </div>
+    </div>
+    <div (click)="goBackNormal()" class="dark-overlay" *ngIf = "authOption">
+
+    </div>
+
+    <div (click)="goBackNormal()" class="auth-options p-2 bg-light" *ngIf = "authOption" (mouseenter)="showAuthOption()" (mouseleave)="goBackNormal()">
+        <ul class="list-group" *ngIf="info">
+            <a routerLink="profile" class="list-group-item list-group-item-action"><i class="fas fa-info-circle"></i>&#160;&#160;My Profile</a>
+            <a routerLink="cart" class="list-group-item list-group-item-action"><i class="fas fa-shopping-cart"></i>&#160;&#160;My Cart</a>
+            <hr class="text-dark"/>
+            <a routerLink="/auth/login" class="list-group-item list-group-item-action"><i class="fa-solid fa-user"></i>&#160;&#160;Login</a>
+            <a (click)="logoutAccount()" style="cursor: pointer;" class="list-group-item list-group-item-action"><i class="fas fa-sign-in-alt"></i>&#160;&#160;Logout</a>
+            <hr class="text-dark"/>
+            <a routerLink="/admin" *ngIf="info.role_id==1" href="#" class="list-group-item list-group-item-action"><i class="fas fa-cog"></i>&#160;&#160;Admin Home</a>
+        </ul>
+    </div>
+
+    <div class="confirmLogout p-4 w3-animate-top" *ngIf="confirmLogout">
+        <button (click)="closeFormConfirm()" type="button" class="btn-close" aria-label="Close"></button>
+        <hr />
+        <h2>Are You Sure To Logout Your Account?</h2>
+        <div>
+            <button (click)="confirmLogoutAccount()" class="btn bg-info text-light p-2 mt-3">Yes</button>
+            &#160;&#160;&#160;
+            <button (click)="closeFormConfirm()" class="btn bg-danger text-light p-2 mt-3">No</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+label {
+   cursor: pointer;
+   /* Style as you please, it will become the visible UI component. */
+}
+ 
+#upload-photo {
+   opacity: 0;
+   position: absolute;
+   z-index: -1;
+}
+
+.imageShow{
+   width: 100px;
+   height: 100px;
+}
+
+
+.formError{
+   position:absolute;
+   width: 400px;
+   background-color: rgba(233, 152, 152, 0.5);
+   top: 23vh;
+   left: 35vw;
+   border-radius: 12px;
+}

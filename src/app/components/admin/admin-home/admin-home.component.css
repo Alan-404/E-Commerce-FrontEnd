@@ -1,0 +1,7 @@
+.myHeader{
+    width: 100vw;
+    background-color: rgba(216, 213, 213, 0.3);
+    position:absolute !important;
+    top: 0;
+    color: white;
+}

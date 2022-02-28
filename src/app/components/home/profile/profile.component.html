@@ -1,0 +1,56 @@
+<div class="myBackground">
+
+</div>
+
+<div class="myForm p-4 d-flex">
+    <div class="authForm border p-3 bg-light w3-animate-zoom" style="box-shadow: 5px 10px 8px #aaaaaa;">
+        <img [src]="infoUser.user.avatar" class="img-thumbnail myAvatar" style="border-radius:12px;" alt="...">
+        <hr />
+        <div>
+            <h3><span style="color: rgb(173, 166, 166);">Birth Date:</span>&#160;&#160;&#160;&#160;<span>{{formatDate(infoUser.user.bdate)}}</span></h3>
+        </div>
+        <div>
+            <h3>
+                <span *ngIf="male" style="color: rgb(173, 166, 166);">Gender:</span>&#160;&#160;&#160;&#160;<span>{{infoUser.user.gender}}&#160;&#160;<i class="fa fa-mars text-primary"></i></span>
+                <span *ngIf="male==false" style="color: rgb(173, 166, 166);">Gender:</span>&#160;&#160;&#160;&#160;<span>{{infoUser.user.gender}}&#160;&#160;<i class="fa fa-venus" style="color: pink;"></i></span>
+            </h3>
+        </div>
+    </div>
+    &#160;&#160;&#160;&#160;&#160;&#160;&#160;
+    <div class="bg-light p-4 w-100 w3-animate-zoom" style="box-shadow: 5px 10px 8px #aaaaaa;">
+        <div class="d-flex justify-content-between">
+            <div class="d-flex">
+                <h1 style="font-size: 35px;">{{infoUser.user.first_name + " " + infoUser.user.last_name}}</h1>
+                &#160;&#160;&#160;&#160;
+                <span class="mt-2 h5" style="color: rgb(184, 181, 174);"><i class="fas fa-location-arrow"></i>&#160;&#160;&#160;{{infoUser.user.country}}</span>
+            </div>
+            <div>
+                <h2><i class="fas fa-edit text-primary"></i></h2>
+            </div>
+        </div>
+        <hr style="color: gray;"/>
+        <div class="text-light">
+            <p style="color: orange;" class="h3"><i class="fa-solid fa-address-book"></i>&#160;&#160;&#160;Addresses</p>
+            <div *ngFor="let address of infoUser.addresses; let index=index" class="d-flex text-warning">
+                &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<h4 style="font-size: 20px;"><i class="fas fa-location text-danger"></i>&#160;&#160;&#160;{{address}}</h4>
+            </div>
+        </div>
+        <hr style="color: gray;"/>
+        <mat-tab-group>
+            <mat-tab label="Contact"> 
+                <h1 class="text-info mt-4">Contact Information</h1>
+                <hr />
+                <div>
+                    <h3><span style="color: rgb(173, 166, 166);">Email:</span>&#160;&#160;&#160;&#160;<span>{{infoUser.user.email}}</span></h3>
+                </div>
+                <div>
+                    <h3><span style="color: rgb(173, 166, 166);">Telephone:</span>&#160;&#160;&#160;&#160;<span>{{infoUser.user.telephone}}</span></h3>
+                </div>
+            </mat-tab>
+            <mat-tab label="Account"> 
+                <h1 class="text-info mt-4">Account Setting</h1>
+                <hr />
+            </mat-tab>
+          </mat-tab-group>
+    </div>
+</div>
